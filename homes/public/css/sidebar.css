@@ -4,10 +4,10 @@ body {
     background-blend-mode: lighten;
 }
 
-/* .featherlight-inner {
+.featherlight-inner {
     width: 50vh;
     height: 50vh;
-} */
+}
 
 .sidebar {
     min-width: 30vh;
@@ -23,10 +23,9 @@ body {
 }
 
 .card.col-8 {
-    max-height: 100vh;
     padding: 0;
 }
 
 div.owl-carousel.card-body {
-    max-height: 25vh;
+    min-height: 30vh;
 }

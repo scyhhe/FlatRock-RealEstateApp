@@ -75,7 +75,7 @@ class RegisterController extends Controller
         ]);
 
         auth()->login($user);
-        session()->flash('message', 'Success! Logged in as' . $user->name);
+        session()->flash('message', 'Success! Logged in as ' . $user->name);
         return redirect($this->redirectTo);
     }
 

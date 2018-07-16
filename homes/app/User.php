@@ -31,8 +31,23 @@ class User extends Authenticatable
         return $this->user_role === 'broker';
     }
 
+    public function hasRole($role)
+    {
+        return $this->user_role === $role;    
+    }
+
     public function homes()
     {
         return $this->hasMany(Home::class);   
+    }
+
+    public function watchlist()
+    {
+        return $this->belongsToMany(Home::class);    
+    }
+
+    public function checkWatchlist($id)
+    {
+        return count($this->watchlist()->where('id', $id)->get());
     }
 }

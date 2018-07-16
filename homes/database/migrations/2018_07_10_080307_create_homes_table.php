@@ -19,6 +19,9 @@ class CreateHomesTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->integer('price');
+            $table->integer('size');
+            $table->string('country');
+            $table->string('city');
             $table->timestamps();
         });
         ###### table for favorites #############
@@ -39,3 +42,13 @@ class CreateHomesTable extends Migration
         Schema::dropIfExists('homes');
     }
 }
+
+
+// Schema::create('homes', function (Blueprint $table) {
+//     $table->increments('id');
+//     $table->integer('user_id');
+//     $table->string('title');
+//     $table->text('description');
+//     $table->integer('price');
+//     $table->timestamps();
+// });

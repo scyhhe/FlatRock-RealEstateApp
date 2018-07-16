@@ -6,18 +6,28 @@ use Illuminate\Database\Eloquent\Model;
 
 class Home extends Model
 {
+    
+    protected $guarded = [];
+
     public function images()
     {
         return $this->hasMany(HomeImage::class);    
     }
 
-    public function broker()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    // public function formatPrice($price)
-    // {
-    //     return money_format('%.3n', $price); 
-    // }
+    public function getlocation()
+    {
+        return $this->city . ', ' . $this->country;
+    }
+
+    public function getPricePerSquareMeter()
+    {
+        $size = $this->size ?? 100;
+        return round(($this->price / $size));    
+    }
+
 }

@@ -12,7 +12,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ mix('js/app.js') }}" defer></script>
     <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="{{ asset('js/owl.carousel.js') }}"></script>
     <script src="{{ asset('js/fontawesome.js') }}"></script>
@@ -21,18 +21,15 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
-
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/owl.carousel.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('css/featherlight.css') }}" rel="stylesheet" type="text/css" /> {{--
-    <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet" type="text/css" /> --}}
+    <link href="{{ asset('css/featherlight.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/sidebar.css') }}" rel="stylesheet" type="text/css" />
     <!-- CDN -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
         crossorigin="anonymous">
-
+    <script src="jsdelivr.com/package/npm/sweetalert2"></script>
 </head>
 
 <body>
@@ -47,20 +44,20 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse text-light" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
+                        <li class="nav-item border-right pl-2 pr-2">
                             <a href="/dashboard" class="nav-link">
                                 Dashboard
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                Browse by brokers
+                        <li class="nav-item border-right pl-2 pr-2">
+                            <a href="/brokers" class="nav-link">
+                                Browse brokers
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item pl-2 pr-2">
                                 <a href="#" class="nav-link">
                                 Contact us :)
                                 </a>
@@ -69,7 +66,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto" id="nav">
+                    <ul class="navbar-nav ml-auto text-dark" id="nav">
                         <!-- Authentication Links -->
                         @guest
 
@@ -80,17 +77,20 @@
                             <a class="nav-link" href="/register_broker">{{ __('Register as a broker or an agency') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <button class="btn btn-sm" style="background: purple;">
+                                    <a class="nav-link text-light" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </button>
+                            
                         </li>
                         @else @if (Auth::user()->isBroker())
-                        <li class="nav-item mr-2">
-                            <a class="py-2 d-none d-md-inline-block btn btn-outline-success p-2 rounded" href="/homes/create">Publish a new ad</a>
+                        <li class="nav-item mr-2 text-light">
+                            <a class="py-2 d-none d-md-inline-block btn btn-outline-danger p-2 rounded" href="/homes/create">Publish a new ad</a>
                         </li>
                         <li class="nav-item">
-                            <a class="py-2 d-none d-md-inline-block btn btn-outline-dark p-2 rounded" href="#">My Ads</a>
+                        <a class="py-2 d-none d-md-inline-block btn btn-outline-dark p-2 rounded" href="/homes/user/{{ Auth::user()->id }}">My Ads</a>
                         </li>
                         @else
-                        <a class="py-2 d-none d-md-inline-block btn btn-outline-info p-2 rounded" href="#">Watchlist</a>                        @endif
+                        <a class="py-2 d-none d-md-inline-block btn btn-link p-2 rounded" href="/watchlist">Watchlist</a>                        @endif
                         <li class="nav-item dropdown ml-5">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false" v-pre>
@@ -118,7 +118,7 @@
         <!-- END OF NAV -->
         {{--
     @include('partials.search') --}}
-    @include('partials.flash');
+    @include('partials.flash')
 
         <div class="container-fluid mt-5">
             @yield('content')

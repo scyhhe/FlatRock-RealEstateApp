@@ -1,5 +1,5 @@
-<footer class="footer d-flex pt-4 pb-4 justify-content-around mt-5 bg-dark text-light" style="max-height:30vh">
-  <div class="row d-flex justify-content-between">
+<footer class="footer d-flex pt-4 pb-4 mt-5 bg-dark text-light" style="max-height:30vh;">
+  <div class="row d-flex justify-content-center w-100" style="padding-left: 20%;">
     
     <div class="col-6 col-md">
       <h5>Features</h5>

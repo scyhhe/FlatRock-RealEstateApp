@@ -23,12 +23,18 @@ Route::get('login','Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 // Auth::routes();
-Route::get('password/reset', 'App\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
 ##############################################################################
 Route::resource('homes', 'HomesController');
+Route::get('brokers', 'HomesController@listAllBrokers');
+Route::get('homes/user/{id}', 'HomesController@listByBroker');
 ##############################################################################
 Route::get('/watchlist', 'WatchlistController@index');
 Route::post('/watchlist/add/{home}', 'WatchlistController@store');
+Route::delete('/watchlist/remove/{home}', 'WatchlistController@destroy');
+
+// Route::group(['middleware' => ['auth']], function() {
+
+// });
 
 #####################################################################################
-// Route::get('/home', 'HomeController@index')->name('home');
