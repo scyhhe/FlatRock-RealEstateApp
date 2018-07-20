@@ -52,7 +52,7 @@
                 <textarea name="description" id="description" cols="30" rows="10" class="form-control" required></textarea>
             </div>
         </div>
-        <button class="btn btn-outline-primary mt-3" type="submit">Publish property</button>
+        <button class="btn btn-outline-dark mt-3" type="submit">Publish property</button>
     </form>
 </div>
 

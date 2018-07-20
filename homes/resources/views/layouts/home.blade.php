@@ -42,15 +42,24 @@
             <div class="card mb-5">
                 <div class="card-header d-flex justify-content-between align-items-baseline">
                     <h2 style="max-width: 60%">
-                    <a href="/homes/{{ $home->id }}" class="nav-link text-dark">
+                    <a href="/homes/{{ $home->id }}" class="nav-link">
                         {{ $home->title }}
                     </a>
                     </h2>
                     <h2 style="color: indianred;" class="mt-1">
                         {{ number_format($home->price) }}€ 
                     </h2>
-                
-                   @include('partials.watchlist')
+                   @auth
+                    @if (auth()->user()->hasRole('user'))
+                        
+                    {{-- Vue Component --}}
+                    <watchlist
+                    :home={{ $home->id }}
+                    :favorited={{ auth()->user()->checkWatchlist($home->id) }}
+                    class="text-light"
+                    ></watchlist>
+                    @endif
+                   @endauth
                 </div>
                 <div class="card-body">
                     <div class="row">

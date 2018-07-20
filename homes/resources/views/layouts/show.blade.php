@@ -4,7 +4,7 @@
 <div class="row mb-5 d-flex justify-content-around">
     <div class="card col-8">
         <!-- start of card header -->
-        <div class="card-header d-flex justify-content-between pb-1">
+        <div class="card-header text-light d-flex justify-content-between pb-1">
             <h2 style="max-width: 60%;">
                 {{ $home->title }}
             </h2>
@@ -12,11 +12,18 @@
                 {{ number_format($home->price) }} €
             </h2>
             <!-- check if home is in watchlist and render accordingly -->
-            @include('partials.watchlist')
+            @auth
+                @if (auth()->user()->hasRole('user'))       
+                    <watchlist
+                    :home={{ $home->id }}
+                    :favorited={{ auth()->user()->checkWatchlist($home->id) }}
+                    class="text-light"
+                    ></watchlist>
+                @endif
+            @endauth
             <!-- end watchlist check -->
         </div>
         <!-- end card header -->
-
         <div class="card-body p-0">
             <div class="owl-carousel card-body justify-content-center text-center d-flex flex-nowrap bg-dark">
                 @foreach ($home->images as $image)
@@ -86,7 +93,7 @@
                                     <label for="textarea">Your message</label>
                                     <textarea cols="20" rows="10" class="form-control" id="textarea" required></textarea>
                                 </div>
-                            <a href="#" class="btn btn-primary">Send enquiry</a>
+                            <button href="#" class="btn btn-outline-dark" type="submit" onclick="event.preventDefault()">Send enquiry</button>
                             </form>
 
                         </div>
@@ -94,8 +101,6 @@
                 </div>
             </div>
         </div>
-
-
 
     </div>
     @include('partials.sidebar')

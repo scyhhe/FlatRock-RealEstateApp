@@ -25,13 +25,14 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 // Auth::routes();
 Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
 ##############################################################################
-Route::resource('homes', 'HomesController');
+Route::resource('homes', 'HomesController', ['except' => 'destroy']);
+Route::post('homes/{home}', 'HomesController@destroy');
 Route::get('brokers', 'HomesController@listAllBrokers');
 Route::get('homes/user/{id}', 'HomesController@listByBroker');
 ##############################################################################
 Route::get('/watchlist', 'WatchlistController@index');
 Route::post('/watchlist/add/{home}', 'WatchlistController@store');
-Route::delete('/watchlist/remove/{home}', 'WatchlistController@destroy');
+Route::post('/watchlist/remove/{home}', 'WatchlistController@destroy');
 
 // Route::group(['middleware' => ['auth']], function() {
 

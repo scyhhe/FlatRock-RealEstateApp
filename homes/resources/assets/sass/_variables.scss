@@ -1,8 +1,26 @@
-
 // Body
 $body-bg: #f5f8fa;
-
+$main-color: #33BB9C;
+$secondary-color: #314050;
 // Typography
-$font-family-sans-serif: "Raleway", sans-serif;
+$font-family-sans-serif: "Raleway",
+sans-serif;
+$font-family2: 'Montserrat', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
+
+@mixin transition($prop) {
+    -o-transition: $prop;
+    -ms-transition: $prop;
+    -moz-transition: $prop;
+    -webkit-transition: $prop;
+    transition: $prop;
+}
+
+@mixin transform($prop) {
+    -o-transform: $prop;
+    -ms-transform: $prop;
+    -moz-transform: $prop;
+    -webkit-transform: $prop;
+    transform: $prop;
+}

@@ -1,19 +1,99 @@
 
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
-
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
 // Variables
 @import "variables";
 
-// Bootstrap
+// libraries & tools
 @import '~bootstrap/scss/bootstrap';
+@import '~owl.carousel/src/scss/owl.carousel';
+@import '~featherlight-webpack/src/featherlight';
+@import '~sweetalert2/dist/sweetalert2';
+// @import '~bulma/css/bulma';
 
-.navbar-laravel {
-  background-color: limegreen;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+/* CUSTOM CSS FROM THIS POINT ONWARD */
+
+
+body {
+  background: $main-color;
+  background-blend-mode: lighten;
 }
 
-// #navbarSupportedContent ul li a {
-//   color: whitesmoke;
-// }
+div.container-fluid.mt-5 {
+  font-family: $font-family2;
+}
+
+.featherlight-inner {
+  width: 50vh;
+  height: 50vh;
+}
+
+.sidebar {
+  min-width: 30vh;
+  max-width: 35vh;
+  margin-bottom: 5%;
+  border: 0.25px solid darkgray;
+  padding: 2.5px;
+}
+
+.footer {
+  position: relative;
+  bottom: 0;
+}
+
+.card.col-8 {
+  padding: 0;
+}
+
+div.owl-carousel.card-body {
+  min-height: 30vh;
+}
+
+nav.navbar-laravel {
+  background-color: $secondary-color;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  div.container div#navbarSupportedContent ul.navbar-nav.mr-auto li a {
+    color: #fff;
+    &:hover {
+      color: $main-color;
+    }
+  }
+}
+
+div.card {
+  border: none;
+  outline: none;
+}
+
+div.card-header {
+  background: $secondary-color;
+  a.nav-link {
+    color: #fff;
+  }
+  .fas {
+    color: $secondary-color;
+  }
+}
+
+a#watchlist {
+  &:hover {
+    border: 1px solid $main-color;
+    color: $main-color;
+    text-decoration: none;
+  }
+}
+
+button[type='submit'] {
+  background-color: $main-color;
+  color: #fff;
+  outline: none;
+  border: none;
+}
   
+.far {
+  @include transition(all 0.5s ease-in-out);
+    &:hover {
+        @include transform(scale(1.2));
+    }
+}

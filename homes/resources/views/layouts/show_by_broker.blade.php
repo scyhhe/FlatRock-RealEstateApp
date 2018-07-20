@@ -41,17 +41,27 @@
 
             <div class="card-header d-flex justify-content-between" id="heading-{{$home->id}}" data-toggle="collapse" data-target="#{{$home->id}}">
                 <h5 class="mb-0">
-                    {{-- <button class="btn btn-link text-dark" type="button"> --}}
-                    <a href="/homes/{{ $home->id }}" class="text-dark mt-1">
+                    
+                    <a href="/homes/{{ $home->id }}" class="text-light mt-1">
                         {{ $home->title }}
                     </a>
-                    {{-- </button> --}}
+   
                 </h5>
                 <h3 class="mb-0" style="color: indianred;">
                     {{ number_format($home->price) }} €
                 </h3>
                 @include('partials.modify')
-                @include('partials.watchlist')
+                @auth
+                    @if (auth()->user()->hasRole('user'))
+                        
+                    {{-- Vue Component --}}
+                    <watchlist
+                    :home={{ $home->id }}
+                    :favorited={{ auth()->user()->checkWatchlist($home->id) }}
+                    class="text-light"
+                    ></watchlist>
+                    @endif
+                @endauth
 
             </div>
 
@@ -80,9 +90,5 @@
 
 </div>
     @endif
-<script>
-    $("a[href^='/homes']").click((e) => {
-        e.stopPropagation();
-    });
-</script>
+
 @endsection

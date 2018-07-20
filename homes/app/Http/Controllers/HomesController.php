@@ -129,7 +129,6 @@ class HomesController extends Controller
      */
     public function update(Request $request, Home $home)
     {
-        // dd($request->all());
         
         $this->validate($request, [
             'title' => 'required|string|max:50',
@@ -153,7 +152,7 @@ class HomesController extends Controller
     {
         $home->delete();
         session()->flash('message', 'Listing was deleted.');
-        return back();
+        return redirect('home');
     }
 
     public function listByBroker($id)
