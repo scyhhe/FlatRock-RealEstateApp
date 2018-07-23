@@ -13,50 +13,53 @@ Real Estate practise task with Laravel & Vue
 
 To run locally: 
 
-<h3>First download or clone this repo </h3>
+<ol>
+
+<li>First download or clone this repo </li>
 
   <code>
     git clone  https://github.com/scyhhe/FlatRock-RealEstateApp.git
   </code>
 
-<h3> Then cd to the folder & run composer install to install composer dependencies<h3>
+<li> Then cd to the folder & run composer install to install composer dependencies<li>
 
   <code>
     composer install
   </code>
 
-<h3>Copy .env.example to .env<h3>
+<li>Copy .env.example to .env<li>
 
   <code>
     cp .env.example .env
   </code>
  
-<h3> Replace DB_* values in .env file to your preferences </h3>
+<li> Replace DB_* values in .env file to your preferences </li>
 
-<h3> Generate the application key via artisan </h3>
+<li> Generate the application key via artisan </li>
   <code>
     php artisan key:generate
   </code>
   
-<h3> Run migrations </h3>
+<li> Run migrations </li>
 
   <code>
     php artisan migrate
   </code>
 
-<h3> Install Node modules </h3>
+<li> Install Node modules </li>
   
   <code>
     npm install
   </code>
   
-<h3> Build <h3>
+<li> Build <li>
 
   <code>
     npm run dev
   </code>
+ 
   
-OR, to recompile automatically on each save :
+<li>OR, to recompile automatically on each save : <li>
 
   <code>
     npm run watch
