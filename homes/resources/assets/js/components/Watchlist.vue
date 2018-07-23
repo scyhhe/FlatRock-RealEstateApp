@@ -32,7 +32,7 @@ export default {
                 .catch(error => console.log(error.response.data));
         },
         unwatch(home) {
-            axios.delete('/watchlist/remove/' + home)
+            axios.post('/watchlist/remove/' + home)
                 .then(response => this.isAddedToWatchlist = false)
                 .catch(error => console.log(error.response.data));
         }

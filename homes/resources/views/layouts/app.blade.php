@@ -103,12 +103,14 @@
         </div>
 
     </div>
-    {{-- lazy fixing footer to always display at bottom --}} @if (!Route::is(['home','homes.create', 'homes.edit', 'homes.show']))
+    {{-- lazy fixing footer to always display at bottom --}} 
+    @if (!Route::is(['home','homes.create', 'homes.edit', 'homes.show']))
     <div class="fixed-bottom mt-5">
         @include ('partials.footer')
     </div>
     @else
-        @include ('partials.footer') @endif
+        @include ('partials.footer') 
+    @endif
 </body>
 
 </html>

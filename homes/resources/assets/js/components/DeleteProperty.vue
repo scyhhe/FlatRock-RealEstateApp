@@ -1,5 +1,5 @@
 <template>
-    <button @click.prevent="deleteProperty(home)" data-toggle="tooltip" data-placement="top" title="Delete" style="background: transparent;border: none; cursor: pointer;">
+    <button @click="deleteProperty(id)" data-toggle="tooltip" data-placement="top" title="Delete" style="background: transparent;border: none; cursor: pointer;">
             <i class="fas fa-times fa-2x" style="color: #fff"></i>
     </button>
 </template>
@@ -9,7 +9,8 @@ export default {
     props: ['home'],
     data() {
         return {
-            isDeleted: false
+            isDeleted: false,
+            id: this.home
         };
     },
     methods: {
@@ -26,7 +27,7 @@ export default {
                 if (result.value) {
                     
                     axios.post('/homes/' + home)
-                        .then(response => this.isDeleted = true)
+                        .then(response => window.location = response.data.redirectTo)
                         .catch(error => console.log(error.response.data));
                 
                 } else {

@@ -22,7 +22,6 @@
             }
         });
         /* end carousel */
-
         /* flash message fade out */
         setTimeout(() => {
             $('#flash').fadeOut(3500);

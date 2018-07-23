@@ -5262,14 +5262,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     props: ['home'],
     data: function data() {
         return {
-            isDeleted: false
+            isDeleted: false,
+            id: this.home
         };
     },
 
     methods: {
         deleteProperty: function deleteProperty(home) {
-            var _this = this;
-
             console.log(home);
             swal({
                 'type': 'warning',
@@ -5282,7 +5281,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 if (result.value) {
 
                     axios.post('/homes/' + home).then(function (response) {
-                        return _this.isDeleted = true;
+                        return window.location = response.data.redirectTo;
                     }).catch(function (error) {
                         return console.log(error.response.data);
                     });
@@ -5342,7 +5341,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         unwatch: function unwatch(home) {
             var _this2 = this;
 
-            axios.delete('/watchlist/remove/' + home).then(function (response) {
+            axios.post('/watchlist/remove/' + home).then(function (response) {
                 return _this2.isAddedToWatchlist = false;
             }).catch(function (error) {
                 return console.log(error.response.data);
@@ -45783,8 +45782,7 @@ var render = function() {
       },
       on: {
         click: function($event) {
-          $event.preventDefault()
-          _vm.deleteProperty(_vm.home)
+          _vm.deleteProperty(_vm.id)
         }
       }
     },
@@ -57142,7 +57140,6 @@ module.exports = Component.exports
             }
         });
         /* end carousel */
-
         /* flash message fade out */
         setTimeout(function () {
             $('#flash').fadeOut(3500);

@@ -152,12 +152,12 @@ class HomesController extends Controller
     {
         $home->delete();
         session()->flash('message', 'Listing was deleted.');
-        return redirect('home');
+        return ['redirectTo' => back()];
     }
 
     public function listByBroker($id)
     {   
-        $user = \App\User::find($id);
+        $user = \App\User::find($id) ?? auth()->user();
         $homes = $user->homes;
         return view('layouts.show_by_broker', compact(['user','homes']));
     }

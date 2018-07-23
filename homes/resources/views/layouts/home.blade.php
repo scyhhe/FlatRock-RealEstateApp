@@ -19,12 +19,14 @@
                 </div>
             </div>
             @if (!count($homes))
+            <div class="container">
                 <h2 class="text-center">
                     No homes currently available. Check back soon or, if you are a broker, 
                     <a href="/homes/create">
                         create one!
                     </a>
                 </h2>
+            </div>
             @else
             <!-- CAROUSEL -->
             <div class="container-fluid owl-carousel owl-theme mb-5">

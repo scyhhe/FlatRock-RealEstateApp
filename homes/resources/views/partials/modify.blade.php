@@ -9,16 +9,7 @@
                 </button>
     
             </form>
-            {{-- <form method="POST" id="delete-property" class="ml-2" action="/homes/{{ $home->id }}">
-                <input type="hidden" value="{{ $home->id }}" id="home-id">
-                {{ method_field('DELETE') }} 
-                {{ csrf_field() }}
-                <button type="submit" data-toggle="tooltip" data-placement="top" title="Delete" style="background: transparent;border: none; cursor: pointer;">
-                        <i class="fas fa-times fa-2x" style="color: #fff"></i>
-                </button>
-    
-            </form> --}}
-        <delete-property :home={{ $home->id }}></delete-property>
+            <delete-property :home={{ $home->id }}></delete-property>
         </div>       
     @endif
 @endif
