@@ -1,2 +1,9 @@
 # FlatRock-RealEstateApp
-Real Estate dummy task with Laravel :)
+
+Real Estate practise task with Laravel
+
+Added Watchlist feature and fully working CRUD functionality for Home model
+
+<b>TODO</b> : 
+
+<li>Start integrating Vue</li>
