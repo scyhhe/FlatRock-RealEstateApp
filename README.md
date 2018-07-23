@@ -21,13 +21,13 @@ To run locally:
     git clone  https://github.com/scyhhe/FlatRock-RealEstateApp.git
   </code>
 
-<li> Then cd to the folder & run composer install to install composer dependencies<li>
+<li> Then cd to the folder & run composer install to install composer dependencies</li>
 
   <code>
     composer install
   </code>
 
-<li>Copy .env.example to .env<li>
+<li>Copy .env.example to .env</li>
 
   <code>
     cp .env.example .env
@@ -52,14 +52,14 @@ To run locally:
     npm install
   </code>
   
-<li> Build <li>
+<li> Build </li>
 
   <code>
     npm run dev
   </code>
  
   
-<li>OR, to recompile automatically on each save : <li>
+<li>OR, to recompile automatically on each save : </li>
 
   <code>
     npm run watch
